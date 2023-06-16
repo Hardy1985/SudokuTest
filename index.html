@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sudoku Test</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <script src="./3.js"></script>
@@ -16,9 +16,10 @@
 <body>
     <div id="container">
         <div id="cell-holder">
-            <div class="button" onclick="easy();">Easy</div>
+            <!-- <div class="button" onclick="easy();">Easy</div>
             <div class="button" onclick="medium();">Medium</div>
-            <div class="button" onclick="hard();">Hard</div>
+            <div class="button" onclick="hard();">Hard</div> -->
+            <h1>Let's Play Sudoku</h1>
             <br>
             <input id="cell-0" class="cell" type="number" maxlength=1 max=9 min=1 onchange="validate_cells();">
             <input id="cell-1" class="cell" type="number" maxlength=1 max=9 min=1 onchange="validate_cells();">
@@ -110,9 +111,15 @@
             <input id="cell-79" class="cell" type="number" maxlength=1 max=9 min=1 onchange="validate_cells();">
             <input id="cell-80" class="cell" type="number" maxlength=1 max=9 min=1 onchange="validate_cells();">
             <br>
-            <div class="button" onclick="solve();">Solve</div>
+            
+            <input id="seed-input" class="seed-cell" type="number" maxlength=4 max=9999 min=1>
+            <div class="button" onclick="seed();">Seed</div>
+            <!-- <input id="seed-input" class="seed-cell" type="number" maxlength=4 max=9999 min=1 onchange="validate_cells();"> -->
+            
             <div class="button" onclick="reset();">Reset</div>
-            <div class="button" onclick="clean();">Clean</div>
+            <!-- <div class="button" onclick="solve();">Solve</div> -->
+            <!-- <div class="button" onclick="clean();">Clean</div> -->
+            
             <p id="status"></p>
         </div>
     </div>
@@ -132,6 +139,17 @@
         #container {
             margin: 5px;
             text-align: center;
+        }
+
+        .seed-cell{
+            height: 45px;
+            width: 80px;
+            margin: 40px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #857f83;
+            color: #000000;
         }
         
         .cell {
