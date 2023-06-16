@@ -21,6 +21,19 @@ function solve() {
     }
 }
 
+function seed(){
+    var element = document.getElementById('seed-input');
+    
+    if (element.value.length == 0){
+        alert("enter a valida value");
+    }
+    if (!is_int(element.value)) return false;
+    var val = parseInt(element.value);
+       
+    
+    new_sudoku_with_seed(20, val);
+}
+
 function easy() {
     new_sudoku(35);
 }
@@ -50,4 +63,5 @@ function reset() {
         element.classList.remove('cell-wrong-border', 'cell-wrong');
     }
     document.getElementById('status').innerHTML = '';
+    window.location.reload();
 }
