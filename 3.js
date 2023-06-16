@@ -9,5 +9,10 @@ function remove_from_arr(arr, item) {
 }
 
 function get_rand_int(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;    
+}
+
+
+function get_rand_int_with_seed(min, max, seed) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;    
 }
