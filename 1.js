@@ -139,6 +139,35 @@ function new_sudoku_old(x) {
     write_grid(grid, true);
 }
 
+function new_sudoku_with_seed(x, seedint) {
+    var empty_cells = [];
+    
+    for (var i = 0; i < 81; i++) empty_cells.push(i);
+    clean();
+    var grid = read_grid();
+
+    for (var i = 0; i < x; i++) {
+        var index, val;
+        while (1) {
+            var previous_grid = grid.slice();
+            //index = empty_cells[get_rand_int(0, empty_cells.length - 1)];            
+            index = empty_cells[seedint * 2];
+            seedint = seedint + 2
+            var possible = possible_number(grid, index);
+            if (possible.length === 0) continue;
+            //val = possible[get_rand_int(0, possible.length - 1)];
+            val = possible[3];
+            grid[index] = val;
+            if (valid_grid(grid) && check_completed(solution(grid))) {
+                empty_cells = remove_from_arr(empty_cells, index);
+                break;
+            }
+            grid = previous_grid.slice();
+        }
+    }
+    write_grid(grid, true);
+}
+
 function new_sudoku(x) {
     var empty_cells = [];
     for (var i = 0; i < 81; i++) empty_cells.push(i);
